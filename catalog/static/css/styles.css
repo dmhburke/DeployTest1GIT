@@ -1,0 +1,123 @@
+* {
+  font-family: verdana;
+  font-size: 14px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    box-shadow: 1px 1px 5px 2px #2d7aff;
+
+}
+
+.mobileContainer {
+  width: 375px;
+  height: 100vh;
+  background-color: #F2F2F2;
+  margin: 0 auto;
+  padding: 0px;
+  overflow: scroll;
+}
+
+.header {
+  background-color: #2d7aff;
+  width: 100vw;
+  height: 15%;
+  border-bottom: 5px #fc9f0a solid;
+  position: fixed;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, -0%);
+}
+
+.headerBuffer {
+  width: 375px;
+  height: 15%;
+}
+
+.content {
+  background-color: white;
+  min-height: 510px;
+  overflow: scroll;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.footer {
+  background-color: #2d7aff;
+  width: 100vw;
+  height: 10%;
+  border-top: 5px #fc9f0a solid;
+  position: fixed;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -0%);
+}
+
+.playerRow {
+  height: 75px;
+  width: 100%;
+  margin: 10px auto;
+  box-shadow: 1px 1px 15px 4px #f2f2f2;
+  padding: 5px;
+
+}
+
+.playerImage {
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.playerName {
+  display: inline-block;
+  vertical-align: middle;
+  width: 150px;
+  height: 100%;
+  line-height: 63px;
+  margin-left: 15px;
+
+}
+
+.scoreInputField {
+  display: inline-block;
+  vertical-align: middle;
+  width: 70px;
+  height: 100%;
+  float: right;
+  background-color: #e0eff9;
+  border: none;
+  text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.submitButton {
+  height: 40px;
+  width: 120px;
+  display: block;
+  margin: 0px auto;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #e0eff9;
+  border: none;
+  padding: none;
+  box-shadow: 1px 1px 15px 4px #f2f2f2;
+}
+
+#submitIcon {
+  height: 40px;
+  position: relative;
+  top:-3px;
+}

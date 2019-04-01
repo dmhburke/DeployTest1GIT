@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>
+{% block browserTitleBlock %}
+
+{% endblock %}
+</title>
+
+  <link rel="icon"
+      type="image/png"
+      href="">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="icon"
+    type="image/png"
+    href="{% static '' %}">
+
+</head>
+
+<body>
+  <div class="mobileContainer">
+    <div class="headerBuffer"></div>
+    <div class="header">
+{% block headerBlock%}
+
+{% endblock %}
+    </div>
+    <div class="content">
+{% block contentBlock %}
+
+{% endblock %}
+    </div>
+    <div class="footer">
+      <a href="http://127.0.0.1:8000/admin/" target="_blank" style="text-transform: none;">Go to admin</a>
+
+    </div>
+
+  </div>
+</body>
+</html>
