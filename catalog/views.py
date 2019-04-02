@@ -58,12 +58,43 @@ def Formpage (request):
     else:
         form = PlayerScoreForm()
 
-    playerscore1 = list(PlayerScore.objects.aggregate(Sum('playerscore1')).values())[0]
-    playerscore2 = list(PlayerScore.objects.aggregate(Sum('playerscore2')).values())[0]
-    playerscore3 = list(PlayerScore.objects.aggregate(Sum('playerscore3')).values())[0]
+    #VALIDATE SCORE MODELS
+    def playerscore_setup():
+        try:
+            playerscore1 = list(PlayerScore.objects.aggregate(Sum('playerscore1')).values())[0]
+        except:
+            playerscore1 = 0
+        try:        
+            playerscore2 = list(PlayerScore.objects.aggregate(Sum('playerscore2')).values())[0]
+        except:
+            playerscore2 = 0
+        try:
+            playerscore3 = list(PlayerScore.objects.aggregate(Sum('playerscore3')).values())[0]
+        except:
+            playerscore3 = 0
 
-    playerstableford1 = list(PlayerStableford.objects.aggregate(Sum('playerstableford1')).values())[0]
-    playerstableford2 = list(PlayerStableford.objects.aggregate(Sum('playerstableford2')).values())[0]
+        return (playerscore1, playerscore2, playerscore3)
+
+    playerscore1, playerscore2, playerscore3 = playerscore_setup()
+
+     #VALIDATE STABLEFORD MODELS
+    def playerstableford_setup():
+        try:
+            playerstableford1 = list(PlayerStableford.objects.aggregate(Sum('playerstableford1')).values())[0]
+        except:
+            playerstableford1 = 0
+        try:
+            playerstableford2 = list(PlayerStableford.objects.aggregate(Sum('playerstableford2')).values())[0]
+        except:
+            playerstableford2 = 0
+        try:
+            playerstableford3 = list(PlayerStableford.objects.aggregate(Sum('playerstableford2')).values())[0]
+        except:
+            playerstableford3 = 0
+
+        return (playerstableford1, playerstableford2, playerstableford3)
+
+    playerstableford1, playerstableford2, playerstableford3 = playerstableford_setup()
     
     context = {
         'player_model': player_model,
