@@ -45,7 +45,7 @@ def stableford_conversion(par, index, HC, score):
         stblford_add = 0
     
     if score is None:
-        score = 0        
+        score = 20        
 
     score_diff = par - score
     stableford_conversion = max(stblford_add + stblford_two + score_diff,0)
@@ -58,7 +58,7 @@ def my_callback(sender, instance, **kwargs):
     convertedscore1 = stableford_conversion(par, index, player1HC, instance.playerscore1)
     convertedscore2 = stableford_conversion(par, index, player2HC, instance.playerscore2)
     
-    stableford_scores = PlayerStableford(
+    stableford_scores = PlayerStableford.objects.create(
         playerstableford1=convertedscore1,
         playerstableford2=convertedscore2,
         )
