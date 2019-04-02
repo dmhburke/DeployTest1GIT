@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from catalog.models import PlayerName, PlayerScore
+from catalog.models import *
 from catalog.forms import PlayerScoreForm
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.db.models import Sum, Count
+from catalog.definitions import *
 
 # Create your views here.
 
@@ -40,9 +43,9 @@ def Formpage (request):
             player3 = PlayerName.objects.get(number=3)
         except:
             player3 = 'None'
-    
-        return (player1, player2, player3)
 
+        return (player1, player2, player3)
+    
     player1, player2, player3 = player_setup()
 
     #SCORE FORM INPUT
@@ -56,7 +59,11 @@ def Formpage (request):
         form = PlayerScoreForm()
 
     playerscore1 = list(PlayerScore.objects.aggregate(Sum('playerscore1')).values())[0]
-    playerscore2 = list(PlayerScore.objects.aggregate(Sum('playerscore1')).values())[0]
+    playerscore2 = list(PlayerScore.objects.aggregate(Sum('playerscore2')).values())[0]
+    playerscore3 = list(PlayerScore.objects.aggregate(Sum('playerscore3')).values())[0]
+
+    playerstableford1 = list(PlayerStableford.objects.aggregate(Sum('playerstableford1')).values())[0]
+    playerstableford2 = list(PlayerStableford.objects.aggregate(Sum('playerstableford2')).values())[0]
     
     context = {
         'player_model': player_model,
@@ -66,6 +73,8 @@ def Formpage (request):
         'active_players': active_players,
         'playerscore1': playerscore1,
         'playerscore2': playerscore2,
+        'playerstableford1': playerstableford1,
+        'playerstableford2': playerstableford2,
         'form': form,
         }
 

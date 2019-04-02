@@ -29,6 +29,7 @@
   <div class="playerRow">
     <img class="playerImage" src="{{ player2.image.url }}"> <!-- -->
     <div class="playerName">{{ player2.name }} ({{ player2.HC }})</div>
+    <div class="scoreInputField">{{ form.playerscore2 }}</div>
   </div>
   {% endif %}
 
@@ -47,7 +48,15 @@
    </div>
 
  </form>
- {{ player1.name }}: {{ playerscore1 }}
+ <b>Strokes</b><br>
+ {{ player1.name }}: {{ playerscore1 }}<br>
+ {{ player2.name }}: {{ playerscore2 }}
+ <br><br>
+ <b>Stableford</b><br>
+ {{ player1.name }}: {{ playerstableford1 }}<br>
+ {{ player2.name }}: {{ playerstableford2 }}
+
+ <br><br>
   <div style="color: lightgrey">Active players: {{ active_players }}</div>
 
 
